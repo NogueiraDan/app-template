@@ -9,7 +9,10 @@ export default function Profile() {
     navigation.navigate("Home");
   };
   const handleLogout = ()=>{
-    navigation.navigate("StackAuthRoutes")
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "StackAuthRoutes" }],
+    });
   }
   return (
     <View style={styles.container}>
