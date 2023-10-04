@@ -9,10 +9,63 @@ import Wishlist from "../screens/Wishlist";
 export default function TabMainRoutes() {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="StackMerchRoutes" component={StackMerchRoutes} />
-      <Tab.Screen name="Wishlist" component={Wishlist} />
-      <Tab.Screen name="StackOrderRoutes" component={StackOrderRoutes} />
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarHideOnKeyboard: true,
+        tabBarShowLabel: true,
+        tabBarActiveTintColor: "black",
+        // tabBarStyle: {
+        //   backgroundColor: "#0c734c",
+        //   borderTopWidth: 0,
+        // },
+      }}
+    >
+      <Tab.Screen
+        name="StackMerchRoutes"
+        component={StackMerchRoutes}
+        options={{
+          tabBarIcon: ({ size, focused }) => {
+            if (focused) {
+              return <Ionicons name="home" color="#000" size={size} />;
+            }
+
+            return <Ionicons name="home-outline" color="#003" size={size} />;
+          },
+          tabBarLabel: "Home",
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Wishlist"
+        options={{
+          tabBarIcon: ({ size, focused }) => {
+            if (focused) {
+              return <Ionicons name="heart" color="#000" size={size} />;
+            }
+
+            return <Ionicons name="heart-outline" color="#003" size={size} />;
+          },
+          tabBarLabel: "Favoritos",
+          headerShown: false,
+        }}
+        component={Wishlist}
+      />
+      <Tab.Screen
+        name="StackOrderRoutes"
+        options={{
+          tabBarIcon: ({ size, focused }) => {
+            if (focused) {
+              return <Ionicons name="cart" color="#000" size={size} />;
+            }
+
+            return <Ionicons name="cart-outline" color="#003" size={size} />;
+          },
+          tabBarLabel: "Carrinho",
+          headerShown: false,
+        }}
+        component={StackOrderRoutes}
+      />
     </Tab.Navigator>
   );
 }
