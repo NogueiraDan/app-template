@@ -12,16 +12,35 @@ export default function StackMerchRoutes() {
       <Stack.Screen
         name="Home"
         options={{
-          tabBarIcon: () => {
-            <Ionicons name="home-outline" color="#000" size={24} />;
-          },
+          title: "Home",
           headerShown: false,
         }}
         component={Home}
       />
-      <Stack.Screen name="Details" component={Details} />
-      <Stack.Screen name="List" component={List} />
-      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen
+        name="Details"
+        options={{
+          title: "Detalhes",
+          headerShown: true,
+        }}
+        component={Details}
+      />
+      <Stack.Screen
+        name="List"
+        options={{
+          title: "Lista",
+          headerShown: true,
+        }}
+        component={List}
+      />
+      <Stack.Screen
+        name="Profile"
+        options={{
+          title: "Perfil",
+          headerShown: true,
+        }}
+        component={Profile}
+      />
     </Stack.Navigator>
   );
 }
